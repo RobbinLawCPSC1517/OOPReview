@@ -23,8 +23,12 @@ namespace _12_properties_only_StudentManager
     {
         static void Main(string[] args)
         {
-            var students = new List<Student>();
 
+            //var myconsole = new Console();
+            //myconsole.WriteLine("Hey Man");
+            
+            var students = new List<Student>();
+            
             var adding = true;
             while (adding)
             {
