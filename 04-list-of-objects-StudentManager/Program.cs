@@ -26,8 +26,8 @@ namespace _04_list_of_objects_StudentManager
 
                 newStudent.name = getString("Student Name (string): ");   
                 newStudent.grade = getInt("Student grade (int): ");
-                students.Add(newStudent);
-                char addNewStudent = getChar("Add another? y/n: ");
+                students.Add(newStudent);              
+                    char addNewStudent = getChar("Add another? y/n: ");
                 if (addNewStudent == 'n')
                     adding = false;
             }
