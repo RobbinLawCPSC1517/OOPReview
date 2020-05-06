@@ -6,6 +6,19 @@ using System.Threading.Tasks;
 
 namespace _12_properties_only_StudentManager
 {
+    class Student
+    {
+        public string Name { get; set; } // a public instance (non-static) auto implemented property with both public get and set
+        public int Grade { get; set; } // a public instance (non-static) auto implemented property with both public get and set
+        public int InstanceCounter1 { get; set; } // public class property with public get and set
+        public static int InstanceCounter2 { get; set; } // public class (static) property with public get and set
+
+        public Student() // constructor method
+        {
+            InstanceCounter1++;
+            InstanceCounter2++;
+        }
+    }
     class Program
     {
         static void Main(string[] args)
@@ -16,7 +29,8 @@ namespace _12_properties_only_StudentManager
             while (adding)
             {
                 var newStudent = new Student();
-                Console.WriteLine($"newStudent Instance count is: {Student.InstanceCounter}");
+                Console.WriteLine($"newStudent Instance count is: {newStudent.InstanceCounter1}");
+                Console.WriteLine($"newStudent Instance count is: {Student.InstanceCounter2}");
                 newStudent.Name = getString($"What is the new students name? ");
                 newStudent.Grade = getInt($"What is the Grade (int) for {newStudent.Name}: ");
                 students.Add(newStudent);
@@ -82,18 +96,6 @@ namespace _12_properties_only_StudentManager
                 return getChar(msg);
             }
 
-        }
-    }
-
-    class Student
-    {
-        public string Name { get; set; } // a public instance (non-static) auto implemented property with both public get and set
-        public int Grade { get; set; } // a public instance (non-static) auto implemented property with both public get and set
-        public static int InstanceCounter { get; private set; } // public class (static) property with public get but private set
-
-        public Student() // constructor method
-        {
-            InstanceCounter++;
         }
     }
 }
