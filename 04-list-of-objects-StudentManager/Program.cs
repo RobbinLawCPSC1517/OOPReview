@@ -93,8 +93,8 @@ namespace _04_list_of_objects_StudentManager
             {
                 Console.Write(msg);
                 int num = int.Parse(Console.ReadLine());
-                if (num < 0)
-                    throw new Exception("Invalid Input: Must be positive number");
+                if (num < 0 || num > 100)
+                    throw new Exception("Invalid Input: Must be between 0 and 100");
                 return num;
             }
             catch (Exception ex)

@@ -10,33 +10,29 @@ namespace _12_properties_only_StudentManager
     {
         public string Name { get; set; } // a public instance (non-static) auto implemented property with both public get and set
         public int Grade { get; set; } // a public instance (non-static) auto implemented property with both public get and set
-        public int InstanceCounter1 { get; set; } // public class property with public get and set
-        public static int InstanceCounter2 { get; set; } // public class (static) property with public get and set
+        public int Counter1 { get; set; } // public class property with public get and set
+        public static int Counter2 { get; set; } // public class (static) property with public get and set
 
         public Student() // constructor method
         {
-            InstanceCounter1++;
-            InstanceCounter2++;
+            Counter1++;
+            Counter2++;
         }
     }
     class Program
     {
         static void Main(string[] args)
         {
-
-            //var myconsole = new Console();
-            //myconsole.WriteLine("Hey Man");
-            
             var students = new List<Student>();
             
             var adding = true;
             while (adding)
             {
                 var newStudent = new Student();
-                Console.WriteLine($"newStudent Instance count is: {newStudent.InstanceCounter1}");
-                Console.WriteLine($"newStudent Instance count is: {Student.InstanceCounter2}");
-                newStudent.Name = getString($"What is the new students name? ");
-                newStudent.Grade = getInt($"What is the Grade (int) for {newStudent.Name}: ");
+                Console.WriteLine($"Instance counter1 is: {newStudent.Counter1}");
+                Console.WriteLine($"Class counter2 is: {Student.Counter2}");
+                newStudent.Name = getString($"New students name? ");
+                newStudent.Grade = getInt($"Grade (int) for {newStudent.Name}? ");
                 students.Add(newStudent);
                 char addNewStudent = getChar("Add another? y/n: ");
                 if (addNewStudent == 'n')
@@ -72,8 +68,8 @@ namespace _12_properties_only_StudentManager
             {
                 Console.Write(msg);
                 int num = int.Parse(Console.ReadLine());
-                if (num < 0)
-                    throw new Exception("Invalid Input: Must be positive number");
+                if (num < 0 || num > 100)
+                    throw new Exception("Invalid Input: Must be between 0 and 100");
                 return num;
             }
             catch (Exception ex)
